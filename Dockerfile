@@ -11,7 +11,10 @@ RUN dnf install -y \
 	mingw64-dlfcn \
 	mingw64-boost \
 	python3 \
-	git
+	git \
+	sshpass \
+	wine-core \
+	p7zip-plugins
 
 COPY mingw64-wxWidgets-3.1.0-20.fc25.noarch.rpm /tmp/
 COPY mingw64-wxWidgets-static-3.1.0-20.fc25.noarch.rpm /tmp/
@@ -19,3 +22,5 @@ RUN dnf install -y /tmp/mingw64-wxWidgets-*.rpm
 
 RUN ln -s /usr/bin/x86_64-w64-mingw32-ar /usr/local/bin/ar
 ENV CXX x86_64-w64-mingw32-c++
+
+ENV LANG C.UTF-8

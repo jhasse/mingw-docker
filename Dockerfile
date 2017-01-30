@@ -15,6 +15,7 @@ RUN dnf install -y \
 	git \
 	sshpass \
 	wine-core \
+	autogen \
 	p7zip-plugins
 
 COPY mingw64-wxWidgets-3.1.0-20.fc25.noarch.rpm /tmp/
@@ -22,8 +23,9 @@ COPY mingw64-wxWidgets-static-3.1.0-20.fc25.noarch.rpm /tmp/
 RUN dnf install -y /tmp/mingw64-wxWidgets-*.rpm
 
 RUN ln -s /usr/bin/x86_64-w64-mingw32-ar /usr/local/bin/ar
+
 ENV CC x86_64-w64-mingw32-gcc
 ENV CXX x86_64-w64-mingw32-c++
-env FC x86_64-w64-mingw32-gfortran
+ENV FC x86_64-w64-mingw32-gfortran
 
 ENV LANG C.UTF-8

@@ -12,6 +12,7 @@ RUN dnf install -y \
 	mingw64-boost \
 	mingw64-gcc-gfortran \
 	mingw64-openssl-static \
+	mingw64-winpthreads-static \
 	python3 \
 	git \
 	sshpass \

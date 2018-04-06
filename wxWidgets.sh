@@ -13,7 +13,7 @@ cmake -DCMAKE_SYSTEM_NAME=Windows -DwxBUILD_SHARED=OFF -DwxUSE_LIBTIFF=sys \
 	-DwxUSE_LIBJPEG=sys -DJPEG_INCLUDE_DIR=/usr/x86_64-w64-mingw32/sys-root/mingw/include -DJPEG_LIBRARY=/usr/x86_64-w64-mingw32/sys-root/mingw/lib/libjpeg.a \
 	-DwxUSE_ZLIB=sys -DZLIB_INCLUDE_DIR=/usr/x86_64-w64-mingw32/sys-root/mingw/include -DZLIB_LIBRARY=/usr/x86_64-w64-mingw32/sys-root/mingw/lib/libz.a \
 	-DwxUSE_EXPAT=sys -DEXPAT_INCLUDE_DIR=/usr/x86_64-w64-mingw32/sys-root/mingw/include -DEXPAT_LIBRARY=/usr/x86_64-w64-mingw32/sys-root/mingw/lib/libexpat.a \
-	-DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/x86_64-w64-mingw32/sys-root/mingw ..
+	-DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_INSTALL_PREFIX=/usr/x86_64-w64-mingw32/sys-root/mingw ..
 make -j$(nproc) install
 
 dnf remove -y cmake

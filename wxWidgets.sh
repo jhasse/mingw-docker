@@ -4,7 +4,7 @@ set -eux
 
 dnf install -y cmake make
 git clone -b translation-utf8 https://github.com/jhasse/wxWidgets
-cd wxWidgets
+pushd wxWidgets
 mkdir mingw-build
 cd mingw-build
 cmake -DCMAKE_SYSTEM_NAME=Windows -DwxBUILD_SHARED=OFF -DwxUSE_LIBTIFF=sys \
@@ -18,6 +18,7 @@ make -j$(nproc) install
 
 dnf remove -y cmake
 dnf clean all
+popd
 rm -rf wxWidgets
 
 cd /usr/x86_64-w64-mingw32/sys-root/mingw/lib/gcc_lib

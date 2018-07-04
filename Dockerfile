@@ -34,6 +34,7 @@ ENV WINEPATH /usr/x86_64-w64-mingw32/sys-root/mingw/bin
 
 # OpenBLAS
 RUN curl -o /tmp/openblas.zip https://codeload.github.com/xianyi/OpenBLAS/zip/v0.3.0 && \
-	pushd /tmp && unzip openblas.zip && cd OpenBLAS* && make -j16 NUM_THREADS=32 && \
+	pushd /tmp && unzip openblas.zip && cd OpenBLAS* && make -j16 NUM_THREADS=32 \
+	GEMM_MULTITHREAD_THRESHOLD=4 && \
 	make PREFIX=/usr/x86_64-w64-mingw32/sys-root/mingw install && cd - && rm -rf OpenBLAS* && \
 	rm openblas.zip

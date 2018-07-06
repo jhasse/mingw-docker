@@ -31,10 +31,3 @@ ENV RC x86_64-w64-mingw32-windres
 ENV PKGCONFIG mingw64-pkg-config
 ENV LANG en_US.UTF-8
 ENV WINEPATH /usr/x86_64-w64-mingw32/sys-root/mingw/bin
-
-# OpenBLAS
-RUN curl -o /tmp/openblas.zip https://codeload.github.com/xianyi/OpenBLAS/zip/v0.3.0 && \
-	pushd /tmp && unzip openblas.zip && cd OpenBLAS* && dnf install -y gcc-c++ && \
-	make -j16 HOSTCC=gcc DYNAMIC_ARCH=1 TARGET=NEHALEM NUM_THREADS=32 && \
-	make PREFIX=/usr/x86_64-w64-mingw32/sys-root/mingw install && cd - && rm -rf OpenBLAS* && \
-	rm openblas.zip && dnf remove -y gcc-c++ && dnf clean all

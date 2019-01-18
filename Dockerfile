@@ -17,7 +17,8 @@ RUN dnf install -y \
 	sshpass \
 	wine-core \
 	autogen \
-	p7zip-plugins
+	p7zip-plugins \
+	mingw64-glew-static
 
 COPY mingw64-wxWidgets-3.1.0-20.fc25.noarch.rpm /tmp/
 COPY mingw64-wxWidgets-static-3.1.0-20.fc25.noarch.rpm /tmp/
